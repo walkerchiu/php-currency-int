@@ -113,10 +113,6 @@ class CurrencyObserver
      */
     public function deleted($entity)
     {
-        if (!config('php-currency.soft_delete')) {
-            $entity->forceDelete();
-        }
-
         if ($entity->isForceDeleting()) {
             $entity->langs()->withTrashed()
                             ->forceDelete();
@@ -145,6 +141,10 @@ class CurrencyObserver
             config('wk-core.class.group.group')
                 ::where('currency_id', $entity->currency_id)
                 ->update(['currency_id' => null]);
+        }
+
+        if (!config('php-currency.soft_delete')) {
+            $entity->forceDelete();
         }
     }
 
