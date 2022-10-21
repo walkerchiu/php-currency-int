@@ -127,10 +127,10 @@ class CurrencyObserver
                 ->update(['currency_id' => null]);
         }
         if (
-            config('wk-currency.onoff.site')
-            && !empty(config('wk-core.class.site.site'))
+            config('wk-currency.onoff.site-mall')
+            && !empty(config('wk-core.class.site-mall.site'))
         ) {
-            config('wk-core.class.site.site')
+            config('wk-core.class.site-mall.site')
                 ::where('currency_id', $entity->currency_id)
                 ->update(['currency_id' => null]);
         }

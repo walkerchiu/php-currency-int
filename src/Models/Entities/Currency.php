@@ -88,7 +88,7 @@ class Currency extends Entity
      */
     public function sites()
     {
-        return $this->hasMany(config('wk-core.class.site.site'), 'currency_id', 'id');
+        return $this->hasMany(config('wk-core.class.site-mall.site'), 'currency_id', 'id');
     }
 
     /**
